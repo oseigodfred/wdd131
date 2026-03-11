@@ -19,6 +19,11 @@ header {
     cursor: pointer;
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+}
+
 .navigation {
     list-style: none;
     padding: 0;
