@@ -1,0 +1,34 @@
+:root {
+	--table-border: 1px solid #777;
+}
+
+a:visited,
+a:active {
+	color: navy;
+}
+
+a:hover {
+	color: purple;
+}
+
+.datatable {
+	border: var(--table-border);
+}
+ol li::marker {
+	content: "✓ ";
+	color: navy;
+	font-size: 2rem;
+}
+
+.datatable .col {
+	border-right: var(--table-border);
+	border-bottom: var(--table-border);
+}
+
+.datatable .col:last-child {
+	border-right: none;
+}
+
+.datatable .row:last-child {
+	background-color: #ccc;
+}

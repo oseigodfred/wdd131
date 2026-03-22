@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Ghana</title>
+
+    <link rel="stylesheet" href="styles/place.css">
+
+    <script src="js/place.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Visit Ghana</h1>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <picture>
+                <source srcset="images/ghana-large.webp" media="(min-width: 768px)">
+                <img src="images/ghana-small.webp" alt="Beautiful landscape of Ghana">
+            </picture>
+
+
+        </section>
+
+        <section class="info">
+            <h2>About Ghana</h2>
+            <p>
+                Ghana is a country located in West Africa along the Gulf of Guinea. It is known for its rich cultural
+                heritage, diverse landscapes, and welcoming people. The country gained independence from Britain in 1957
+                and became the first sub-Saharan African nation to achieve independence from colonial rule.
+
+                Ghana features a variety of natural attractions including tropical rainforests, beautiful beaches,
+                wildlife parks, and historic forts and castles that reflect its important role in global history. The
+                capital city, Accra, is a vibrant urban center that blends modern development with traditional culture.
+
+                The country is famous for its festivals, music, colorful textiles such as kente cloth, and delicious
+                local cuisine. Ghana’s economy is supported by resources like gold, cocoa, and oil, and it is one of the
+                leading cocoa producers in the world.
+
+                Visitors to Ghana enjoy exploring national parks, historical landmarks, lively markets, and experiencing
+                the country’s warm hospitality.
+
+            </p>
+        </section>
+
+        <section class="weather">
+
+            <h2>Weather</h2>
+            <img src="images/weather.svg" alt="Weather Icon">
+
+            <p>Temperature: <span id="temp">8</span>°C</p>
+            <p>Wind Speed: <span id="speed">10</span> km/h</p>
+            <p>Wind Chill: <span id="windchill"></span></p>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            © <span id="currentyear"></span> | Godfred Osei | Ghana
+        </p>
+
+        <p id="lastModified"></p>
+
+    </footer>
+
+</body>
+
+</html>
