@@ -50,16 +50,25 @@
             </p>
         </section>
 
-        <section class="weather">
+       <section class="weather">
 
-            <h2>Weather</h2>
-            <img src="images/weather.svg" alt="Weather Icon">
+    <h2>Weather</h2>
 
-            <p>Temperature: <span id="temp">8</span>°C</p>
-            <p>Wind Speed: <span id="speed">10</span> km/h</p>
-            <p>Wind Chill: <span id="windchill"></span></p>
+    <svg width="40" height="40" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5" fill="orange"/>
+        <g stroke="orange">
+            <line x1="12" y1="1" x2="12" y2="4"/>
+            <line x1="12" y1="20" x2="12" y2="23"/>
+            <line x1="1" y1="12" x2="4" y2="12"/>
+            <line x1="20" y1="12" x2="23" y2="12"/>
+        </g>
+    </svg>
 
-        </section>
+    <p>Temperature: <span id="temp">8</span>°C</p>
+    <p>Wind Speed: <span id="speed">10</span> km/h</p>
+    <p>Wind Chill: <span id="windchill"></span></p>
+
+</section>
 
     </main>
 
