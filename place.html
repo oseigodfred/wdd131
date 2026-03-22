@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="styles/place.css">
 
-    <script src="scripts/getdates.js" defer></script>
+    <script src="js/place.js" defer></script>
 </head>
 
 <body>
@@ -20,13 +20,16 @@
     <main>
 
         <section class="hero">
-
             <picture>
                 <source srcset="images/ghana-large.webp" media="(min-width: 768px)">
                 <img src="images/ghana-small.webp" alt="Beautiful landscape of Ghana">
             </picture>
 
-
+            <!-- Overlay text for hero -->
+            <h2>Explore Ghana</h2>
+            <article>
+                <p>Discover culture, history, and natural beauty.</p>
+            </article>
         </section>
 
         <section class="info">
@@ -75,7 +78,7 @@
     <footer>
 
         <p>
-            © <span id="currentyear"></span> | Godfred Osei | Ghana
+            © <span id="year"></span> | Godfred Osei | Ghana
         </p>
 
         <p id="lastModified"></p>
