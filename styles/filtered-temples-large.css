@@ -1,0 +1,17 @@
+@media (min-width: 700px){
+
+#menu{
+display:none;
+}
+
+.navigation{
+display:flex;
+justify-content:center;
+flex-direction:row;
+}
+
+.container{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
