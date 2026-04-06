@@ -1,17 +1,30 @@
-@media (min-width: 700px) {
+/* Tablet & Small Desktops (600px and up) */
+@media (min-width: 600px) {
+    #temple-container {
+        display: grid;
+        /* Cards will be at least 280px, and fill available space */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+    }
+}
 
+/* Larger Screens (700px and up) */
+@media (min-width: 700px) {
     #menu {
-        display: none;
+        display: none; /* Hide hamburger icon */
     }
 
     .navigation {
         display: flex;
         justify-content: center;
-        flex-direction: row;
+        flex-direction: row; /* Turn vertical menu into horizontal */
     }
 
+    /* If you still have a separate .container outside of #temple-container 
+       that explicitly needs 3 exact columns, you can keep this: 
+    */
     .container {
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
-
 }

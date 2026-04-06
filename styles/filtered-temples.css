@@ -1,14 +1,24 @@
+/* ==========================================================================
+   1. Base & Reset Styles
+   ========================================================================== */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     background: #f4f4f4;
+    color: #333;
 }
 
+/* ==========================================================================
+   2. Header & Navigation (Fixed for functionality)
+   ========================================================================== */
 header {
     background: #1e6091;
     color: white;
     padding: 1rem;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 #menu {
@@ -27,51 +37,113 @@ nav {
 .navigation {
     list-style: none;
     padding: 0;
-    display: none;
+    display: none; /* Controlled by JS via the .show class */
     flex-direction: column;
 }
 
 .navigation a {
     display: block;
-    padding: 10px;
+    padding: 10px 15px;
     color: white;
     text-decoration: none;
+    transition: background 0.2s ease;
 }
 
 .navigation a:hover {
     background: #184e77;
+    border-radius: 4px;
 }
 
 .show {
     display: flex;
 }
 
+/* Desktop Navigation Media Query */
+@media (min-width: 768px) {
+    #menu {
+        display: none; /* Hide hamburger menu on desktop */
+    }
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+}
+
+/* ==========================================================================
+   3. Main Content & Responsive Card Grid
+   ========================================================================== */
 main {
-    max-width: 900px;
+    max-width: 1200px; /* Wider to accommodate side-by-side cards */
     margin: auto;
-    padding: 1rem;
+    padding: 2rem 1rem;
 }
 
-.container {
+/* Grid container for the cards */
+#temple-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    /* Creates columns that are at least 300px, fitting as many as possible */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
 }
 
-figure {
-    background: white;
-    padding: 10px;
-    text-align: center;
+/* ==========================================================================
+   4. Individual Card Styling
+   ========================================================================== */
+.temple-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; /* Clips the image to the card's rounded corners */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-figure img {
+/* Card Hover Lift Effect */
+.temple-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Ensures all card images are uniform in size and aspect ratio */
+.temple-card img {
     width: 100%;
-    height: auto;
+    height: 220px;
+    object-fit: cover; /* Prevents image stretching */
+    display: block;
 }
 
+/* Card typography and spacing */
+.temple-card h3 {
+    margin: 15px 15px 5px 15px;
+    color: #004d40;
+    font-size: 1.3rem;
+}
+
+.temple-card p {
+    margin: 5px 15px;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+.temple-card p:last-child {
+    margin-bottom: 20px; /* Pushes content slightly away from the bottom edge */
+}
+
+.temple-card .label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* ==========================================================================
+   5. Footer
+   ========================================================================== */
 footer {
     background: #02394d;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
 }
