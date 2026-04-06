@@ -1,19 +1,4 @@
-// MENU TOGGLE
-const menuButton = document.querySelector('#menu');
-const navigation = document.querySelector('.navigation');
-
-menuButton.addEventListener('click', () => {
-    navigation.classList.toggle('show');
-    menuButton.textContent = menuButton.textContent === "☰" ? "X" : "☰";
-});
-
-// FOOTER
-document.querySelector("#year").textContent = new Date().getFullYear();
-document.querySelector("#lastModified").textContent =
-    "Last Modified: " + document.lastModified;
-
-
-// TEMPLE DATA
+// 1. Temple Objects Array
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -64,92 +49,116 @@ const temples = [
         area: 116642,
         imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
-    {
-        templeName: "Accra Ghana",
-        location: "Accra, Ghana",
-        dedicated: "2004, January, 11",
-        area: 17500,
-        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Accra_Ghana_Temple.jpg"
-    },
+    // FIXED Image URLs for the 3 added temples
     {
         templeName: "Salt Lake",
         location: "Salt Lake City, Utah, United States",
         dedicated: "1893, April, 6",
         area: 253015,
-        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Salt_Lake_Temple%2C_Utah_-_Sept_2004-2.jpg"
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/salt-lake-city-utah/2018/400x250/slctemple5.jpg"
+    },
+    // Replaced Accra and Sapporo with these working ones
+    {
+        templeName: "London England",
+        location: "London, England",
+        dedicated: "1958, September, 7",
+        area: 42652,
+        imageUrl: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=400&q=80"
     },
     {
-        templeName: "Rome Italy",
-        location: "Rome, Italy",
-        dedicated: "2019, March, 10",
-        area: 41010,
-        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Rome_Italy_Temple.jpg"
+        templeName: "Lima Perú",
+        location: "Lima, Perú",
+        dedicated: "1986, January, 10",
+        area: 9600,
+        imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/lima-peru/400x250/lima-peru-temple-evening-1075606-wallpaper.jpg"
     }
 ];
 
-// SELECT ELEMENTS
-const container = document.querySelector("#temple-container");
-const title = document.querySelector("#title");
+// 2. DOM Elements
+const templeContainer = document.querySelector("#temple-container");
+const titleHeader = document.querySelector("#title");
+const hamButton = document.querySelector("#menu");
+const navigation = document.querySelector(".navigation");
 
-// DISPLAY FUNCTION
-function displayTemples(templesArray) {
-    container.innerHTML = "";
+// 3. Hamburger Menu Toggle
+hamButton.addEventListener("click", () => {
+    navigation.classList.toggle("open");
+    hamButton.textContent = navigation.classList.contains("open") ? "X" : "☰";
+});
 
-    templesArray.forEach(temple => {
-        const card = document.createElement("section");
+// 4. Function to create and display temple cards
+function createTempleCards(filteredTemples) {
+    templeContainer.innerHTML = ""; // Clear existing cards
+    filteredTemples.forEach(temple => {
+        let card = document.createElement("section");
+        card.classList.add("temple-card");
 
-        const name = document.createElement("h3");
+        let name = document.createElement("h3");
         name.textContent = temple.templeName;
 
-        const location = document.createElement("p");
-        location.textContent = `Location: ${temple.location}`;
+        let location = document.createElement("p");
+        location.innerHTML = `<span class="label">Location:</span> ${temple.location}`;
 
-        const dedicated = document.createElement("p");
-        dedicated.textContent = `Dedicated: ${temple.dedicated}`;
+        let dedicated = document.createElement("p");
+        dedicated.innerHTML = `<span class="label">Dedicated:</span> ${temple.dedicated}`;
 
-        const area = document.createElement("p");
-        area.textContent = `Area: ${temple.area} sq ft`;
+        let area = document.createElement("p");
+        area.innerHTML = `<span class="label">Size:</span> ${temple.area.toLocaleString()} sq ft`;
 
-        const img = document.createElement("img");
-        img.src = temple.imageUrl;
-        img.alt = temple.templeName;
-        img.loading = "lazy";
+        let img = document.createElement("img");
+        img.setAttribute("src", temple.imageUrl);
+        img.setAttribute("alt", `${temple.templeName} Temple`);
+        img.setAttribute("loading", "lazy"); // Native Lazy Loading
 
-        card.append(name, location, dedicated, area, img);
-        container.appendChild(card);
+        card.appendChild(name);
+        card.appendChild(location);
+        card.appendChild(dedicated);
+        card.appendChild(area);
+        card.appendChild(img);
+
+        templeContainer.appendChild(card);
     });
 }
 
-// NAVIGATION FILTERS
-document.querySelector("#home").addEventListener("click", (e) => {
-    e.preventDefault();
-    title.textContent = "Home";
-    displayTemples(temples);
+// 5. Event Listeners for Navigation Filtering
+document.querySelector("#home").addEventListener("click", () => {
+    titleHeader.textContent = "Home";
+    createTempleCards(temples);
 });
 
-document.querySelector("#old").addEventListener("click", (e) => {
-    e.preventDefault();
-    title.textContent = "Old Temples";
-    displayTemples(temples.filter(t => new Date(t.dedicated).getFullYear() < 1900));
+document.querySelector("#old").addEventListener("click", () => {
+    titleHeader.textContent = "Old";
+    const oldTemples = temples.filter(temple => {
+        const year = parseInt(temple.dedicated.split(",")[0]);
+        return year < 1900;
+    });
+    createTempleCards(oldTemples);
 });
 
-document.querySelector("#new").addEventListener("click", (e) => {
-    e.preventDefault();
-    title.textContent = "New Temples";
-    displayTemples(temples.filter(t => new Date(t.dedicated).getFullYear() > 2000));
+document.querySelector("#new").addEventListener("click", () => {
+    titleHeader.textContent = "New";
+    const newTemples = temples.filter(temple => {
+        const year = parseInt(temple.dedicated.split(",")[0]);
+        return year > 2000;
+    });
+    createTempleCards(newTemples);
 });
 
-document.querySelector("#large").addEventListener("click", (e) => {
-    e.preventDefault();
-    title.textContent = "Large Temples";
-    displayTemples(temples.filter(t => t.area > 90000));
+document.querySelector("#large").addEventListener("click", () => {
+    titleHeader.textContent = "Large";
+    const largeTemples = temples.filter(temple => temple.area > 90000);
+    createTempleCards(largeTemples);
 });
 
-document.querySelector("#small").addEventListener("click", (e) => {
-    e.preventDefault();
-    title.textContent = "Small Temples";
-    displayTemples(temples.filter(t => t.area < 10000));
+document.querySelector("#small").addEventListener("click", () => {
+    titleHeader.textContent = "Small";
+    const smallTemples = temples.filter(temple => temple.area < 10000);
+    createTempleCards(smallTemples);
 });
 
-// INITIAL LOAD
-displayTemples(temples);
+// 6. Footer Information
+document.querySelector("#year").textContent = new Date().getFullYear();
+document.querySelector("#lastModified").textContent = `Last Modified: ${document.lastModified}`;
+
+// 7. Initial Call to Display Home
+createTempleCards(temples);
