@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     let reviewCount = localStorage.getItem("reviewCount");
 
     if (!reviewCount) {
@@ -11,5 +10,5 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("reviewCount", reviewCount);
 
     document.getElementById("counter").textContent =
-        `Total Reviews Submitted: ${reviewCount}`;
+        "Total Reviews Submitted: " + reviewCount;
 });

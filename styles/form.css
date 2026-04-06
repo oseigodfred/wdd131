@@ -1,11 +1,11 @@
 body {
     font-family: Arial, sans-serif;
-    background: #f4f6f8;
+    background-color: #f4f6f8;
     margin: 0;
 }
 
 header {
-    background: #2c3e50;
+    background-color: #2c3e50;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -14,7 +14,7 @@ header {
 main {
     max-width: 600px;
     margin: 20px auto;
-    background: white;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
 }
@@ -26,7 +26,7 @@ main {
 }
 
 label {
-    margin-bottom: 5px;
+    margin: 5px 0;
 }
 
 input, select, textarea {
@@ -34,26 +34,31 @@ input, select, textarea {
     font-size: 1rem;
 }
 
-.rating label {
-    display: block;
-    cursor: pointer;
-}
-
 input[type="submit"] {
-    background: #27ae60;
+    background-color: #27ae60;
     color: white;
     border: none;
     cursor: pointer;
-    padding: 10px;
 }
 
 input[type="submit"]:hover {
-    background: #219150;
+    background-color: #219150;
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background: #2c3e50;
+    background-color: #2c3e50;
     color: white;
+}
+
+/* ✅ REQUIRED MEDIA QUERY */
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+
+    input, select, textarea {
+        font-size: 0.9rem;
+    }
 }
