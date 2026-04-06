@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Review Form</title>
+
+    <link rel="stylesheet" href="styles/form.css" />
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <h1>Product Review</h1>
+</header>
+
+<main>
+    <form method="get" action="review.html">
+
+        <!-- Product Name -->
+        <div class="form-group">
+            <label for="product">Product Name</label>
+            <select id="product" name="product" required>
+                <option value="" disabled selected>Select a Product ...</option>
+            </select>
+        </div>
+
+        <!-- Rating -->
+        <div class="form-group">
+            <label>Overall Rating</label>
+            <div class="rating">
+                <label><input type="radio" name="rating" id="star1" value="1" required> ☆</label>
+                <label><input type="radio" name="rating" id="star2" value="2"> ☆☆</label>
+                <label><input type="radio" name="rating" id="star3" value="3"> ☆☆☆</label>
+                <label><input type="radio" name="rating" id="star4" value="4"> ☆☆☆☆</label>
+                <label><input type="radio" name="rating" id="star5" value="5"> ☆☆☆☆☆</label>
+            </div>
+        </div>
+
+        <!-- Date -->
+        <div class="form-group">
+            <label for="installDate">Date of Installation</label>
+            <input type="date" id="installDate" name="installDate" required>
+        </div>
+
+        <!-- Features -->
+        <div class="form-group">
+            <label>Useful Features</label>
+
+            <label><input type="checkbox" id="feature1" name="features" value="Durability"> Durability</label>
+            <label><input type="checkbox" id="feature2" name="features" value="Efficiency"> Efficiency</label>
+            <label><input type="checkbox" id="feature3" name="features" value="Design"> Design</label>
+            <label><input type="checkbox" id="feature4" name="features" value="Ease of Use"> Ease of Use</label>
+        </div>
+
+        <!-- Review -->
+        <div class="form-group">
+            <label for="review">Written Review</label>
+            <textarea id="review" name="review" rows="4"></textarea>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username">Your Name</label>
+            <input type="text" id="username" name="username">
+        </div>
+
+        <!-- Submit -->
+        <div class="form-group">
+            <input type="submit" value="Submit Review">
+        </div>
+
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2026 Product Reviews | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

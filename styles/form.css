@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.rating label {
+    display: block;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    background: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+input[type="submit"]:hover {
+    background: #219150;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #2c3e50;
+    color: white;
+}
