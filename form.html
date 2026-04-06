@@ -6,7 +6,8 @@
 
     <title>Product Review Form</title>
 
-    <meta name="description" content="Submit a product review with rating, features, and feedback.">
+    <!-- ✅ REQUIRED META TAGS -->
+    <meta name="description" content="Submit a product review including rating, installation date, useful features, and feedback.">
     <meta name="author" content="Godfred Osei">
 
     <link rel="stylesheet" href="styles/form.css">
@@ -22,7 +23,7 @@
 <main>
     <form method="get" action="review.html">
 
-        <!-- Product -->
+        <!-- Product Name -->
         <div class="form-group">
             <label for="product">Product Name</label>
             <select id="product" name="product" required>
@@ -32,7 +33,7 @@
 
         <!-- Rating -->
         <div class="form-group">
-            <span>Overall Rating</span>
+            <p>Overall Rating</p>
 
             <input type="radio" id="star1" name="rating" value="1" required>
             <label for="star1">☆</label>
@@ -58,7 +59,7 @@
 
         <!-- Features -->
         <div class="form-group">
-            <span>Useful Features</span>
+            <p>Useful Features</p>
 
             <input type="checkbox" id="feature1" name="features" value="Durability">
             <label for="feature1">Durability</label>
@@ -79,7 +80,7 @@
             <textarea id="review" name="review"></textarea>
         </div>
 
-        <!-- Name -->
+        <!-- Username -->
         <div class="form-group">
             <label for="username">Your Name</label>
             <input type="text" id="username" name="username">
