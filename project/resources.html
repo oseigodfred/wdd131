@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resources | MindStrong Men</title>
+
+    <meta name="description" content="Tools and strategies for improving men's mental health.">
+    <meta name="author" content="Godfred Osei">
+
+    <link rel="stylesheet" href="styles/site.css">
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="MindStrong Men Logo">
+        </a>
+
+        <nav aria-label="Main navigation">
+            <button id="menu-button">☰</button>
+
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="contact.html">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HEADER -->
+        <section class="resource-header">
+            <h1>Support & Strategies</h1>
+            <p>Select a category to find helpful mental health resources.</p>
+
+            <!-- FILTER BUTTONS (JS REQUIRED FEATURE) -->
+            <div class="filter-controls">
+                <button class="filter-btn" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Coping">Coping</button>
+                <button class="filter-btn" data-filter="Awareness">Awareness</button>
+                <button class="filter-btn" data-filter="Support">Support</button>
+            </div>
+        </section>
+
+        <!-- DYNAMIC GRID -->
+        <section id="resource-grid" class="grid-container">
+            <!-- JavaScript injects content here -->
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="current-year"></span> MindStrong Men |
+            <a href="references.html">References</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

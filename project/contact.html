@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Connect | MindStrong Men</title>
+
+    <meta name="description" content="Join the MindStrong Men community and share your thoughts or get support.">
+    <meta name="author" content="Godfred Osei">
+
+    <link rel="stylesheet" href="styles/site.css">
+    <script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="MindStrong Men Logo">
+        </a>
+
+        <nav aria-label="Main navigation">
+            <button id="menu-button">☰</button>
+
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="contact.html" class="active">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="form-section">
+            <h1>Join the Community</h1>
+            <p>We are here to listen, support, and grow together.</p>
+
+            <!-- FORM (JS CONNECTED) -->
+            <form id="join-form">
+
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" required>
+
+                <label for="user-email">Email:</label>
+                <input type="email" id="user-email" name="user-email" required>
+
+                <label for="interest">Interested in:</label>
+                <select id="interest" name="interest">
+                    <option value="newsletter">Monthly Newsletter</option>
+                    <option value="support">Support Groups</option>
+                    <option value="volunteer">Volunteering</option>
+                </select>
+
+                <label for="message">How can we help?</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+            <!-- REQUIRED FOR JS FEEDBACK -->
+            <p id="form-result"></p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; <span id="current-year"></span> MindStrong Men |
+            <a href="references.html">References</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

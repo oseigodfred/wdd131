@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #1f3c88;
+    --accent-color: #cfb10a;
+    --bg-color: #f4f7f9;
+    --text-color: #333;
+}
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+}
+
+h1, p {
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 150px;
+    height: 120px;
+    object-fit: contain;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: translateY(-2px) scale(1.05);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+#menu-button {
+    display: none;
+    background: none;
+    color: white;
+    font-size: 1.8rem;
+    border: none;
+    cursor: pointer;
+}
+
+nav ul {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+
+    #menu-button {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(50%);
+}
+
+.hero-text {
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+/* =========================
+   GRID SYSTEM (UNIFIED)
+========================= */
+.grid-container,
+#featured-cards,
+#resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* =========================
+   CARDS (CLEAN SINGLE VERSION)
+========================= */
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* CARD IMAGE */
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* CARD CONTENT */
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* CARD BUTTON LINK */
+.card-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    background: #2a7f62;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-link:hover {
+    background: #1f5f49;
+}
+
+/* OPTIONAL CARD DETAILS */
+.card-detail {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.5;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+.card-manage {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #1f5f49;
+    background: #e9f7f1;
+    padding: 10px;
+    border-radius: 8px;
+    line-height: 1.4;
+}
+
+/* =========================
+   FORMS
+========================= */
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea, select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* =========================
+   ACCESSIBILITY FIX
+========================= */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #0b1f3a;
+    color: white;
+    margin-top: 2rem;
+}
